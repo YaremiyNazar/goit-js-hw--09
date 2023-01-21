@@ -34,6 +34,8 @@ btnDiv.style.position = "absolute"
 btnDiv.style.top = "50%"
 btnDiv.style.left = "50%"
 btnDiv.style.transform = "translate(-50%, -50%)"
+btnDiv.firstChild.style.alignItems = "center"
+btnDiv.style.textContent ="center"
 
 btnDiv.firstChild.style.marginRight = "20px"
 btnDiv.firstChild.style.textTransform = "uppercase"
