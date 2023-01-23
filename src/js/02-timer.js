@@ -69,8 +69,9 @@ const options = {
           clearInterval(intervalId);
         }
     
-        result = convertMs(differenceInTime);
+        const result = convertMs(differenceInTime);
         viewOfTimer(result)
+        console.log()
         start.disabled = true
       }, 1000);
     });
