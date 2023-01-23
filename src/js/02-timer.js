@@ -14,7 +14,6 @@ const second = document.querySelector("span[data-seconds]")
 let intervalId = null;
 start.disabled = true;
 
-
 function viewOfTimer({ days, hours, minutes, seconds }) {
 day.textContent = `${days}`;
 hour.textContent = `${hours}`;
@@ -47,10 +46,6 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     console.log(selectedDates[0]);
-
-    
-    
-
     if(selectedDates[0] < new Date()) {
       start.disabled = true;
       Notiflix.Notify.failure("Please choose a date in the future");
@@ -59,16 +54,12 @@ const options = {
     if (selectedDates[0] > new Date()) {
       start.disabled = false;
     }
-  
-    
     start.addEventListener('click', () => {
       intervalId = setInterval(() => {
         const differenceInTime = selectedDates[0] - new Date();
-
         if (differenceInTime < 1000) {
           clearInterval(intervalId);
         }
-    
         const result = convertMs(differenceInTime);
         viewOfTimer(result)
         start.disabled = true
@@ -76,7 +67,6 @@ const options = {
     });
   },
 };
-
 flatpickr(input, options);
 
 
