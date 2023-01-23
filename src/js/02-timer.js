@@ -39,6 +39,7 @@ function convertMs(ms) {
 
   return { days, hours, minutes, seconds };
 }
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -46,6 +47,9 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     console.log(selectedDates[0]);
+
+    
+    
 
     if(selectedDates[0] < new Date()) {
       start.disabled = true;
@@ -55,7 +59,8 @@ const options = {
     if (selectedDates[0] > new Date()) {
       start.disabled = false;
     }
-   
+  
+    
     start.addEventListener('click', () => {
       intervalId = setInterval(() => {
         const differenceInTime = selectedDates[0] - new Date();
@@ -63,8 +68,10 @@ const options = {
         if (differenceInTime < 1000) {
           clearInterval(intervalId);
         }
-        const result = convertMs(differenceInTime);
-        viewOfTimer(result);
+    
+        result = convertMs(differenceInTime);
+        viewOfTimer(result)
+        start.disabled = true
       }, 1000);
     });
   },

@@ -8,9 +8,11 @@ function handleSubmit(event) {
   const delayStep = event.currentTarget.step.valueAsNumber;
   const amoun = event.currentTarget.amount.valueAsNumber;
 
-  for (let i = 1; i <= amoun; i += 1) {
-      firstDelay = firstDelay + delayStep;
-      createPromise(i, firstDelay).then(data => Notiflix.Notify.success(data)).catch(error => Notiflix.Notify.failure(error))
+  for (let i = 1; i <= amoun; i += 1) { 
+    createPromise(i, firstDelay)
+      .then(data => Notiflix.Notify.success(data))
+      .catch(error => Notiflix.Notify.failure(error))
+    firstDelay += delayStep;
   };
 }
 form.addEventListener("submit", handleSubmit);
