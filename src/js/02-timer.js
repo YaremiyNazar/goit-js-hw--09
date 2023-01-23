@@ -71,7 +71,6 @@ const options = {
     
         const result = convertMs(differenceInTime);
         viewOfTimer(result)
-        console.log()
         start.disabled = true
       }, 1000);
     });
